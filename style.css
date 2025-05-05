@@ -1,51 +1,56 @@
 @charset "UTF-8";
 
+/* Reset básico */
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box; /* Melhor prática para lidar com padding e border */
+}
+
+body {
+    font-family: sans-serif;
 }
 
 a {
-    font-family: sans-serif;
     text-decoration: none;
+    color: inherit; /* Herdar a cor do elemento pai por padrão */
 }
 
 .header {
     background: transparent;
-    padding-inline: 16px;
+    padding-inline: 1rem; /* Usando rem para espaçamento */
+    position: relative; /* Para posicionar o menu hambúrguer corretamente */
 }
 
 .nav {
     max-width: 1280px;
     height: 70px;
     margin-inline: auto;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    margin-left: -19px;
-    margin-top: 18px;
-    max-width: 86px;
+    margin-left: -1.2rem; /* Usando rem */
+    margin-top: 1.125rem; /* Usando rem */
+    max-width: 5.375rem; /* Usando rem */
 }
 
 .nav-list {
     display: flex;
-    gap: 32px;
+    gap: 2rem; /* Usando rem */
     list-style: none;
 }
 
 .nav-list a {
-    font-size: 18px;
-    color: rgb(0, 0, 0);
-    padding-block: 16px;
+    font-size: 1.125rem; /* Usando rem */
+    padding-block: 1rem; /* Usando rem */
 }
 
 .hero {
     margin-top: -70px;
-    height: calc(100vh - -20vh);
+    min-height: calc(100vh - 70px); /* Usando vh para altura mínima */
     background: center / cover no-repeat url("./Imagens/Landing-Page-Sorveteria.png");
 }
 
@@ -55,89 +60,121 @@ a {
     background: none;
     border-top: 3px solid white;
     cursor: pointer;
+    width: 30px; /* Mantendo em px para tamanho fixo do ícone */
+    height: 21px; /* Ajustando a altura total do ícone */
+    position: relative; /* Para posicionar os pseudo-elementos */
 }
 
 .hamburger::before,
 .hamburger::after {
-    content: " ";
+    content: "";
     display: block;
-    width: 30px;
+    width: 100%;
     height: 3px;
     background: white;
-    margin-top: 5px;
-    position: relative;
+    margin-top: 0.375rem; /* Usando rem */
+    position: absolute;
     transition: 0.3s;
 }
 
-@media (max-width: 750px){
+.hamburger::before {
+    top: 0;
+}
+
+.hamburger::after {
+    bottom: 0;
+}
+
+@media (max-width: 750px) {
     .hamburger {
         display: block;
-        z-index: 1;
-      }
-    
-      .nav-list {
+        z-index: 2; /* Garante que o hambúrguer fique acima do menu */
+        position: absolute;
+        top: 1.625rem; /* Ajustando a posição */
+        right: 1rem; /* Ajustando a posição */
+    }
+
+    .nav-list {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
         background: #ddddf6;
-        clip-path: circle(100px at 90% -15%);
-        transition: 1s ease-out;
-    
+        clip-path: circle(100px at 90% -10%); /* Ajustando a posição do círculo */
+        transition: clip-path 0.8s ease-out; /* Reduzindo a duração da transição */
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: center; /* Centralizando os itens */
         align-items: center;
-        gap: 0;
-    
+        gap: 2rem; /* Adicionando um pouco de espaçamento entre os itens */
         pointer-events: none;
-      }
-    
-      .nav-list a {
-        font-size: 24px;
-        opacity: 0;
-      }
-    
-      .nav-list li:nth-child(1) a {
-        transition: 0.5s 0.2s;
-      }
-    
-      .nav-list li:nth-child(2) a {
-        transition: 0.5s 0.4s;
-      }
-    
-      .nav-list li:nth-child(3) a {
-        transition: 0.5s 0.6s;
-      }
-    
-      /* Estilos ativos */
-    
-      .nav.active .nav-list {
-        clip-path: circle(1500px at 90% -15%);
-        pointer-events: all;
-      }
-    
-      .nav.active .nav-list a {
-        opacity: 1;
-      }
-    
-      .nav.active .hamburger {
-        position: fixed;
-        top: 26px;
-        right: 16px;
-        border-top-color: transparent;
-      }
-    
-      .nav.active .hamburger::before {
-        transform: rotate(135deg);
-      }
-    
-      .nav.active .hamburger::after {
-        transform: rotate(-135deg);
-        top: -7px;
-      }
-
-      .hero {
-    background: center / cover no-repeat url("./Imagens/Landing-Page-Sorveteria-mobile.png");
-      }
     }
+
+    .nav-list a {
+        font-size: 1.5rem; /* Aumentando a fonte no mobile */
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out; /* Transição mais suave */
+    }
+
+    /* Estilos ativos */
+    .nav.active .nav-list {
+        clip-path: circle(150vh at 90% -10%); /* Expandindo o círculo para cobrir a tela */
+        pointer-events: all;
+    }
+
+    .nav.active .nav-list a {
+        opacity: 1;
+    }
+
+    .nav.active .hamburger {
+        position: fixed;
+        top: 1.625rem; /* Mantendo a mesma posição */
+        right: 1rem; /* Mantendo a mesma posição */
+        border-top-color: transparent;
+    }
+
+    .nav.active .hamburger::before {
+        transform: translateY(0.375rem) rotate(135deg); /* Ajustando a posição */
+    }
+
+    .nav.active .hamburger::after {
+        transform: translateY(-0.375rem) rotate(-135deg); /* Ajustando a posição */
+    }
+
+    .hero {
+        margin-top: 0; /* Removendo a margem superior no mobile */
+        min-height: 100vh; /* Ajustando a altura para cobrir a tela */
+        background-image: url("./Imagens/Landing-Page-Sorveteria-mobile.png");
+    }
+
+    .logo {
+        margin-left: auto; /* Centralizando o logo no mobile */
+        margin-right: auto;
+        margin-top: 1rem; /* Ajustando a margem */
+        max-width: 7rem; /* Ajustando o tamanho */
+    }
+}
+
+@media (min-width: 751px) and (max-width: 1024px) {
+    .hero {
+        background-image: url("./Imagens/Landing-Page-Sorveteria-tablet.png");
+    }
+
+    .logo {
+        margin-left: -1.2rem;
+        margin-top: 4.9rem; /* Ajustando a margem */
+        max-width: 10.25rem; /* Ajustando o tamanho */
+    }
+
+    .nav-list a {
+        font-size: 1.4375rem; /* Usando rem */
+        padding-block: 1rem; /* Usando rem */
+    }
+}
+
+@media (min-width: 1025px) {
+    .logo {
+        margin-top: 1.125rem; /* Voltando ao valor original */
+        max-width: 5.375rem; /* Voltando ao valor original */
+    }
+}
