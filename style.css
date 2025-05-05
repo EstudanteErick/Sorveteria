@@ -49,9 +49,12 @@ a {
 }
 
 .hero {
-    margin-top: -70px;
-    min-height: calc(100vh - 70px); /* Usando vh para altura mínima */
-    background: center / cover no-repeat url("./Imagens/Landing-Page-Sorveteria.png");
+    margin-top: -71px;
+    min-height: 108vh;
+    background-image: url(./Imagens/Landing-Page-Sorveteria.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .hamburger {
@@ -142,22 +145,28 @@ a {
     }
 
     .hero {
-        margin-top: 0; /* Removendo a margem superior no mobile */
-        min-height: 100vh; /* Ajustando a altura para cobrir a tela */
-        background-image: url("./Imagens/Landing-Page-Sorveteria-mobile.png");
+        margin-top: -70px;
+        min-height: 100vh;
+        background-image: url(./Imagens/Landing-Page-Sorveteria-mobile.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
 
     .logo {
-        margin-left: auto; /* Centralizando o logo no mobile */
+        margin-left: -26px;
         margin-right: auto;
-        margin-top: 1rem; /* Ajustando a margem */
-        max-width: 7rem; /* Ajustando o tamanho */
+        margin-top: 1rem;
+        max-width: 6rem;
     }
 }
 
-@media (min-width: 751px) and (max-width: 1024px) {
+@media (min-width: 750px) and (max-width: 1024px) {
     .hero {
         background-image: url("./Imagens/Landing-Page-Sorveteria-tablet.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
 
     .logo {
