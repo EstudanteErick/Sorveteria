@@ -50,12 +50,13 @@ a {
 
 .hero {
     margin-top: -71px;
-    min-height: 108vh;
+    min-height: 118vh;
     background-image: url(./Imagens/Landing-Page-Sorveteria.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
+
 
 .hamburger {
     display: none;
@@ -88,7 +89,28 @@ a {
     bottom: 0;
 }
 
-@media (max-width: 750px) {
+.titulo {
+    font-size: 40px;
+    margin-top: -393px;
+    margin-left: 113px;
+    color: aqua;
+}
+
+.sub-titulo {
+    text-align: center;
+    margin-top: 26px;
+    margin-left: -698px;
+    font-size: 21px;
+    color: white;
+}
+
+.menu {
+    text-align: center;
+    margin-top: 274px;
+}
+
+/* Estilos para telas menores (mobile) */
+@media (max-width: 767px) {
     .hamburger {
         display: block;
         z-index: 2; /* Garante que o hambúrguer fique acima do menu */
@@ -159,9 +181,32 @@ a {
         margin-top: 1rem;
         max-width: 6rem;
     }
+
+    .titulo {
+        white-space: nowrap;
+        text-align: center;
+        font-size: 35px;
+        margin-top: -551px;
+        margin-left: 5px;
+        color: aqua;
+    }
+
+    .sub-titulo {
+        text-align: center;
+        margin-top: 26px;
+        margin-left: -4px;
+        font-size: 21px;
+        color: white;
+    }
+
+    .menu {
+    margin-top: 390px;
+    font-size: 25px;
+    }
 }
 
-@media (min-width: 750px) and (max-width: 1024px) {
+/* Estilos para tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
     .hero {
         background-image: url("./Imagens/Landing-Page-Sorveteria-tablet.png");
         background-repeat: no-repeat;
@@ -179,11 +224,85 @@ a {
         font-size: 1.4375rem; /* Usando rem */
         padding-block: 1rem; /* Usando rem */
     }
+
+
+    .titulo {
+    font-size: 54px;
+    margin-top: -799px;
+    margin-left: 135px;
+    color: aqua;
+    }
+
+    .sub-titulo {
+        text-align: center;
+        margin-top: 23px;
+        margin-left: 7px;
+        font-size: 31px;
+        color: white;
+    }
+
+    .menu {
+    text-align: center;
+    margin-top: 575px;
+    font-size: 35px;
+    }
 }
 
+/* Estilos para desktop (acima de 1025px) */
 @media (min-width: 1025px) {
     .logo {
         margin-top: 1.125rem; /* Voltando ao valor original */
         max-width: 5.375rem; /* Voltando ao valor original */
+    }
+}
+
+/* Estilos específicos para monitores Full HD (1920px de largura) */
+@media (min-width: 1920px) {
+    .nav {
+        max-width: 1920px; /* Garante que a largura máxima da navegação seja Full HD */
+    }
+
+    .logo {
+        margin-left: 3rem;
+        margin-top: 6rem;
+        max-width: 10vw;
+    }
+
+    .nav-list {
+        gap: 4rem; /* Aumentando o espaçamento entre os itens do menu */
+    }
+
+    .nav-list a {
+        position: relative;
+        top: 47px;
+        font-size: 2.2rem;
+        padding-block: 1.2rem;
+    }
+
+    .hero {
+        min-height: 100vh;
+        background-size: contain; 
+    }
+
+    .titulo {
+        font-size: 58px;
+        margin-top: -629px;
+        margin-left: 113px;
+        color: aqua;
+    }
+
+    .sub-titulo {
+        text-align: center;
+        margin-top: 47px;
+        margin-left: -1053px;
+        font-size: 27px;
+        color: white;
+    }
+
+
+    .menu {
+    text-align: center;
+    margin-top: 449px;
+    font-size: 51px;
     }
 }
