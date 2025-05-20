@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* Reset básico */
+/* Reset básico para garantir consistência entre navegadores */
 * {
     padding: 0;
     margin: 0;
@@ -17,57 +17,61 @@ a {
     color: inherit; /* Herdar a cor do elemento pai por padrão */
 }
 
+/* Estilos do cabeçalho */
 .header {
     background: transparent;
-    padding-inline: 1rem; /* Usando rem para espaçamento */
+    padding-inline: 1rem; /* Espaçamento interno horizontal */
     position: relative; /* Para posicionar o menu hambúrguer corretamente */
 }
 
 .nav {
     max-width: 1280px;
     height: 70px;
-    margin-inline: auto;
+    margin-inline: auto; /* Centralizar horizontalmente */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; /* Espaçar logo e menu */
+    align-items: center; /* Alinhar verticalmente */
 }
 
 .logo {
-    margin-left: -1.2rem; /* Usando rem */
-    margin-top: 1.125rem; /* Usando rem */
-    max-width: 5.375rem; /* Usando rem */
+    margin-left: -1.2rem; /* Ajuste fino da margem esquerda */
+    margin-top: 1.125rem; /* Ajuste fino da margem superior */
+    max-width: 5.375rem; /* Largura máxima da logo */
 }
 
+/* Estilos da lista de navegação */
 .nav-list {
     display: flex;
-    gap: 2rem; /* Usando rem */
-    list-style: none;
+    gap: 2rem; /* Espaçamento entre os itens do menu */
+    list-style: none; /* Remover marcadores de lista */
 }
 
 .nav-list a {
-    font-size: 1.125rem; /* Usando rem */
-    padding-block: 1rem; /* Usando rem */
+    font-size: 1.125rem; /* Tamanho da fonte dos links */
+    padding-block: 1rem; /* Espaçamento vertical nos links */
 }
 
+/* Estilos da seção Hero */
 .hero {
-    margin-top: -71px;
-    min-height: 118vh;
+    margin-top: -71px; /* Compensar a altura do header */
+    min-height: 118vh; /* Altura mínima para cobrir a tela */
     background-image: url(./Imagens/Landing-Page-Sorveteria.png);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: cover; /* Cobrir todo o espaço disponível */
+    background-position: center; /* Centralizar a imagem */
 }
 
-
+/* Estilos do menu hambúrguer (para mobile) */
 .hamburger {
-    display: none;
+    display: none; /* Oculto por padrão em telas maiores */
     border: none;
     background: none;
     border-top: 3px solid white;
     cursor: pointer;
-    width: 30px; /* Mantendo em px para tamanho fixo do ícone */
-    height: 21px; /* Ajustando a altura total do ícone */
-    position: relative; /* Para posicionar os pseudo-elementos */
+    width: 30px;
+    height: 21px;
+    position: relative;
+    z-index: 2; /* Garantir que fique acima do menu */
 }
 
 .hamburger::before,
@@ -77,9 +81,9 @@ a {
     width: 100%;
     height: 3px;
     background: white;
-    margin-top: 0.375rem; /* Usando rem */
+    margin-top: 0.375rem;
     position: absolute;
-    transition: 0.3s;
+    transition: 0.3s; /* Transição suave para animação */
 }
 
 .hamburger::before {
@@ -90,46 +94,51 @@ a {
     bottom: 0;
 }
 
+/* Estilos do título principal */
 .titulo {
     font-size: 40px;
-    margin-top: -393px;
-    margin-left: 113px;
+    margin-top: -393px; /* Posicionamento vertical */
+    margin-left: 113px; /* Posicionamento horizontal */
     color: aqua;
 }
 
+/* Estilos do subtítulo */
 .sub-titulo {
     text-align: center;
     margin-top: 26px;
-    margin-left: -698px;
+    margin-left: -698px; /* Ajuste fino do posicionamento */
     font-size: 21px;
     color: white;
 }
 
-/*MENU de produtos*/
-
+/* Estilos da seção de menu de produtos */
 .menu {
     text-align: center;
-    margin-top: 274px; color: white;
+    margin-top: 274px;
+    color: white;
+    font-size: 25px; /* Adicionado um tamanho de fonte padrão */
 }
 
 .container {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: center; /* Centralizar os cards horizontalmente */
+    flex-wrap: wrap; /* Quebrar para a próxima linha em telas menores */
 }
 
 .card {
-    background-color: white;
+    background-color: rgb(80, 95, 182);
     width: 270px;
     height: 556px;
     margin: 10px;
-    border-radius: 15px 15px 0 0;
+    border-radius: 15px 15px 0 0; /* Bordas arredondadas no topo */
+    transition: all 1s ease; /* Transição suave para o efeito de hover */
 }
 
 .card-image {
     height: 249px;
     margin-bottom: 15px;
     background-size: cover;
+    background-position: center;
 }
 
 .car-1 {
@@ -137,17 +146,18 @@ a {
 }
 
 .car-2 {
-    background-image: url("./Imagens/Sorvete\ no\ copo.png");
+    background-image: url("./Imagens/Sorvete no copo.png");
 }
 
 .car-3 {
-    background-image: url("./Imagens/Sorvete\ no\ prato.png");
+    background-image: url("./Imagens/Sorvete no prato.png");
 }
 
 .card > h2 {
     position: relative;
     top: 4px;
     text-align: center;
+    color: white;
 }
 
 .card > p {
@@ -155,6 +165,7 @@ a {
     top: 252px;
     text-align: center;
     margin-top: -228px;
+    color: white;
 }
 
 .card > a {
@@ -172,20 +183,41 @@ a {
     background-color: rgb(207, 207, 207);
     color: white;
     cursor: pointer;
-    transform: scale(1.03);
-    transition: all 1s ease;
-    text-decoration: none;
+    transform: scale(1.03); /* Pequena escala ao passar o mouse */
+    text-decoration: none; /* Remover sublinhado do link no hover */
 }
 
+/* Estilos da seção de história */
+.historia-1 {
+    color: white;
+    text-align: center;
+}
+
+.historia {
+    font-size: 18px;
+    color: white;
+    max-width: 589px;
+    margin-top: 30px;
+    margin-left: 18px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sorveteria {
+    max-width: 460px;
+    margin-left: 751px;
+    margin-top: -300px;
+    position: relative;
+    top: -3px;
+}
 
 /* Estilos para telas menores (mobile) */
 @media (max-width: 767px) {
     .hamburger {
-        display: block;
-        z-index: 2; /* Garante que o hambúrguer fique acima do menu */
+        display: block; /* Exibir o hambúrguer */
         position: absolute;
-        top: 1.625rem; /* Ajustando a posição */
-        right: 1rem; /* Ajustando a posição */
+        top: 1.625rem;
+        right: 1rem;
     }
 
     .nav-list {
@@ -195,25 +227,25 @@ a {
         width: 100vw;
         height: 100vh;
         background: #ddddf6;
-        clip-path: circle(100px at 90% -10%); /* Ajustando a posição do círculo */
-        transition: clip-path 0.8s ease-out; /* Reduzindo a duração da transição */
+        clip-path: circle(100px at 90% -10%);
+        transition: clip-path 0.8s ease-out;
         flex-direction: column;
-        justify-content: center; /* Centralizando os itens */
+        justify-content: center;
         align-items: center;
-        gap: 2rem; /* Adicionando um pouco de espaçamento entre os itens */
-        pointer-events: none;
+        gap: 2rem;
+        pointer-events: none; /* Evitar interações com o menu oculto */
     }
 
     .nav-list a {
-        font-size: 1.5rem; /* Aumentando a fonte no mobile */
+        font-size: 1.5rem;
         opacity: 0;
-        transition: opacity 0.3s ease-in-out; /* Transição mais suave */
+        transition: opacity 0.3s ease-in-out;
     }
 
-    /* Estilos ativos */
+    /* Estilos ativos para o menu mobile */
     .nav.active .nav-list {
-        clip-path: circle(150vh at 90% -10%); /* Expandindo o círculo para cobrir a tela */
-        pointer-events: all;
+        clip-path: circle(150vh at 90% -10%); /* Expande para cobrir a tela */
+        pointer-events: all; /* Permitir interações com o menu ativo */
     }
 
     .nav.active .nav-list a {
@@ -222,17 +254,17 @@ a {
 
     .nav.active .hamburger {
         position: fixed;
-        top: 1.625rem; /* Mantendo a mesma posição */
-        right: 1rem; /* Mantendo a mesma posição */
-        border-top-color: transparent;
+        top: 1.625rem;
+        right: 1rem;
+        border-top-color: transparent; /* Esconder a linha superior */
     }
 
     .nav.active .hamburger::before {
-        transform: translateY(0.375rem) rotate(135deg); /* Ajustando a posição */
+        transform: translateY(0.375rem) rotate(135deg); /* Animação para 'X' */
     }
 
     .nav.active .hamburger::after {
-        transform: translateY(-0.375rem) rotate(-135deg); /* Ajustando a posição */
+        transform: translateY(-0.375rem) rotate(-135deg); /* Animação para 'X' */
     }
 
     .hero {
@@ -245,14 +277,14 @@ a {
     }
 
     .logo {
-        margin-left: -26px;
-        margin-right: auto;
+        margin-left: auto; /* Empurrar para a direita */
+        margin-right: 1rem; /* Adicionar margem direita */
         margin-top: 1rem;
         max-width: 6rem;
     }
 
     .titulo {
-        white-space: nowrap;
+        white-space: nowrap; /* Evitar quebras de linha indesejadas */
         text-align: center;
         font-size: 35px;
         margin-top: -551px;
@@ -269,8 +301,29 @@ a {
     }
 
     .menu {
-    margin-top: 390px;
-    font-size: 25px;
+        margin-top: 390px;
+        font-size: 25px;
+    }
+
+    /* HISTORIA (Mobile) */
+    .historia {
+        font-size: 18px;
+        max-width: 90%; /* Ocupar a largura da tela com margens */
+        margin-top: 384px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .sorveteria {
+        max-width: 92%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -271px;
+        position: relative;
+        top: -608px;
+        left: 16px;
+
     }
 }
 
@@ -285,21 +338,20 @@ a {
 
     .logo {
         margin-left: -1.2rem;
-        margin-top: 4.9rem; /* Ajustando a margem */
-        max-width: 10.25rem; /* Ajustando o tamanho */
+        margin-top: 4.9rem;
+        max-width: 10.25rem;
     }
 
     .nav-list a {
-        font-size: 1.4375rem; /* Usando rem */
-        padding-block: 1rem; /* Usando rem */
+        font-size: 1.4375rem;
+        padding-block: 1rem;
     }
 
-
     .titulo {
-    font-size: 54px;
-    margin-top: -799px;
-    margin-left: 135px;
-    color: aqua;
+        font-size: 54px;
+        margin-top: -799px;
+        margin-left: 135px;
+        color: aqua;
     }
 
     .sub-titulo {
@@ -311,34 +363,56 @@ a {
     }
 
     .menu {
-    text-align: center;
-    margin-top: 575px;
-    font-size: 35px;
+        text-align: center;
+        margin-top: 575px;
+        font-size: 35px;
+    }
+
+    /* HISTORIA (Tablet) */
+    .sorveteria {
+        max-width: 557px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -271px;
+        position: relative;
+        top: -314px;
+        left: 109px;
+    }
+
+    .historia {
+        font-size: 26px;
+        max-width: 80%; /* Ajustar largura para tablet */
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        position: relative;
+        top: 362px;
     }
 }
 
 /* Estilos para desktop (acima de 1025px) */
 @media (min-width: 1025px) {
     .logo {
-        margin-top: 1.125rem; /* Voltando ao valor original */
-        max-width: 5.375rem; /* Voltando ao valor original */
+        margin-top: 1.125rem;
+        max-width: 5.375rem;
     }
 }
 
 /* Estilos específicos para monitores Full HD (1920px de largura) */
 @media (min-width: 1920px) {
     .nav {
-        max-width: 1920px; /* Garante que a largura máxima da navegação seja Full HD */
+        max-width: 1920px;
     }
 
     .logo {
         margin-left: 3rem;
         margin-top: 6rem;
-        max-width: 10vw;
+        max-width: 10vw; /* Usar vw para responsividade em telas grandes */
     }
 
     .nav-list {
-        gap: 4rem; /* Aumentando o espaçamento entre os itens do menu */
+        gap: 4rem;
     }
 
     .nav-list a {
@@ -350,7 +424,7 @@ a {
 
     .hero {
         min-height: 100vh;
-        background-size: contain; 
+        background-size: contain; /* Exibir a imagem completamente, sem cortar */
     }
 
     .titulo {
@@ -368,10 +442,31 @@ a {
         color: white;
     }
 
-
     .menu {
-    text-align: center;
-    margin-top: 449px;
-    font-size: 51px;
+        text-align: center;
+        margin-top: 449px;
+        font-size: 51px;
+    }
+
+    /* HISTORIA (Full HD) */
+    .sorveteria {
+        max-width: 955px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -271px;
+        position: relative;
+        top: -178px;
+        left: 470px;
+    }
+
+    .historia {
+        font-size: 34px;
+        max-width: 70%; /* Ajustar largura para telas grandes */
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        position: relative;
+        top: 663px;
     }
 }
